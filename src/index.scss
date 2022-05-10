@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+$cell_size: 30;
+$zero: #878787;
+$one: #0B24FB;
+$two: #0E7A11;
+$three: #FC0D1B;
+$four: #020B79;
+$five: #852123;
+$six: #278786;
+$seven: #black;
+$eight: #878787;
+
+.row {
+    display:flex;
+}
+.cell {
+    margin:2px;
+    width: $cell_size;
+    height: $cell_size;
+    background-color: #BFBFBF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    cursor: pointer;
+}
+.cell.zero {
+    color: $zero;
+}
+.cell.one {
+    color: $one;
+}
+.cell.two {
+    color: $two;
+}
+.cell.three {
+    color: $three;
+}
+.cell.four {
+    color: $four;
+}
+.cell.five {
+    color: $five;
+}
+.cell.six {
+    color: $six;
+}
+.cell.seven {
+    color: $seven;
+}
+.cell.eight {
+    color: $eight;
+}
+.cell.revealed {
+    background-color: red;
+}
+.cell.game-over {
+    background-color: red;
+}
+.cell.bomb {
+    content: '💣';
+}
+
