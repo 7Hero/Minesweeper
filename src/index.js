@@ -103,11 +103,11 @@ class Game {
     this.intervalId = null;
     this.state = 'INITIALIZING';
     this.gameOverCell = {row: null, col: null};
+    this.revealedCells = 0;
   }
   init(row,col) {
     this.board.generateBoard(row,col);
     this.state = this.board.revealCell(row,col);
-
     this.intervalId = setInterval(() => {
       this.timer++;
     }, 1000);
@@ -163,7 +163,9 @@ class Game {
   reveal(row,col) {
     for(let row of this.board.cells) {
       for(let cell of row) {
-        cell.isRevealed = true;
+        if(cell.isBomb) {
+          cell.isRevealed = true;
+        }
       }
     }
     this.gameOverCell ={row,col};

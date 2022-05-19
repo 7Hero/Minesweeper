@@ -29,31 +29,31 @@ $eight: #878787;
     cursor: pointer;
 }
 .cell.zero {
-    color: $zero;
+    background-color: $zero;
 }
 .cell.one {
-    color: $one;
+    background-color: $one;
 }
 .cell.two {
-    color: $two;
+    background-color: $two;
 }
 .cell.three {
-    color: $three;
+    background-color: $three;
 }
 .cell.four {
-    color: $four;
+    background-color: $four;
 }
 .cell.five {
-    color: $five;
+    background-color: $five;
 }
 .cell.six {
-    color: $six;
+    background-color: $six;
 }
 .cell.seven {
-    color: $seven;
+    background-color: $seven;
 }
 .cell.eight {
-    color: $eight;
+    background-color: $eight;
 }
 .cell.revealed {
     background-color: red;
@@ -62,6 +62,9 @@ $eight: #878787;
     background-color: red;
 }
 .cell.bomb {
-    content: '💣';
+    background-color: black;
+}
+.cell.flag {
+    background-color: violet;
 }
 
