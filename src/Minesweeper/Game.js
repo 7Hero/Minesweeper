@@ -13,7 +13,7 @@ class Minesweeper {
     this.gameWon = false;
   }
   startAt(x,y) {
-    this.timerId = setInterval(this.incrementTimer,1000)
+    this.timerId = setInterval(() => this.incrementTimer(),1000)
     this.board.createBoard(x, y);
     this.gameStarted = true;
     this.update();
@@ -30,6 +30,8 @@ class Minesweeper {
     this.timer++
   }
   restart() {
+    clearInterval(this.timerId);
+    this.timer = 0;
     this.gameStarted = false;
     this.gameOver = false;
     this.gameWon = false;
@@ -38,6 +40,7 @@ class Minesweeper {
   }
   endGame(x,y){
     clearInterval(this.timerId);
+    this.timer = 0;
     this.board.revealBombs();
     this.gameStarted = false;
     this.update();
@@ -80,13 +83,17 @@ class Minesweeper {
 }
 
 const minesweeper = new Minesweeper(9,9,10);
-minesweeper.draw();
 
 const button = document.getElementById('reset');
 button.addEventListener('click', () => {
   minesweeper.restart();
 })
+const timer = document.getElementById('timer');
 
+setInterval(() => {
+  timer.innerText = minesweeper.timer;
+},1000);
+minesweeper.draw();
 window.addEventListener('click', (e) => {
   if(e.target.classList.contains('cell') && !minesweeper.gameOver && !minesweeper.gameWon) {
     const [x, y] = e.target.id.split('-').map(Number);
